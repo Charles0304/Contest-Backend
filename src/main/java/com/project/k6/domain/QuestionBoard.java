@@ -32,8 +32,8 @@ public class QuestionBoard {
     private AnswerBoard answerBoard;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "member_id")
+    private Member member;
 
     // getters and setters
 }

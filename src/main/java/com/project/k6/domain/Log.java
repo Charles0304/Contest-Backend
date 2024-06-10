@@ -34,8 +34,8 @@ public class Log {
     private String result;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "member_id")
+    private Member member;
 
     @ManyToMany
     @JoinTable(

@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class LikeId implements Serializable {
-    private Long user;
+    private Long member;
     private int hsCode;
 
     // default constructor, equals, and hashCode methods

@@ -4,8 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.project.k6.domain.User;
-import com.project.k6.persistence.UserRepository;
+import com.project.k6.domain.Member;
+import com.project.k6.persistence.HsCodeRepository;
+import com.project.k6.persistence.MemberRepository;
 
 
 
@@ -13,17 +14,17 @@ import com.project.k6.persistence.UserRepository;
 @Service
 public class UserService {
 	@Autowired
-	private UserRepository userRepository;
+	private MemberRepository memberRepository;
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
-	public User registerUser(User user) {
-		user.setPassword(passwordEncoder.encode(user.getPassword()));
-		return userRepository.save(user);
+	public Member registerUser(Member member) {
+		member.setPassword(passwordEncoder.encode(member.getPassword()));
+		return memberRepository.save(member);
 	}
 	
-	public User findByMemberId(String username) {
-		return userRepository.findByUsername(username).orElse(null);
+	public Member findByUsername(String username) {
+		return memberRepository.findByUsername(username).orElse(null);
 	}
 }

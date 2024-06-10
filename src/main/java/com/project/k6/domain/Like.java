@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "user_like")
+@Table(name = "member_like")
 @IdClass(LikeId.class)
 @Getter
 @Setter
@@ -23,8 +23,8 @@ import lombok.Setter;
 public class Like {
     @Id
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "member_id")
+    private Member member;
 
     @Id
     @ManyToOne
