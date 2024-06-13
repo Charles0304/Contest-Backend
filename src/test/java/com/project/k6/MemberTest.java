@@ -25,5 +25,4 @@ public class MemberTest {
 		.build();
 		memberRepo.save(test);
 	}
-	
 }

@@ -64,7 +64,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		// 인증 결과 생성된 Authentication 객체에서 필요한 정보를 읽어서 토큰을 만들어서 헤더에 추가
 		User user = (User)authResult.getPrincipal();
 		String token = JWT.create()
-						.withExpiresAt(new Date(System.currentTimeMillis()+1000*60*100))	// 토근 유효기간이 10분
+						.withExpiresAt(new Date(System.currentTimeMillis()+1000*600*100))	// 토근 유효기간이 10분
 						.withClaim("username", user.getUsername())
 						.sign(Algorithm.HMAC256("edu.pnu.jwt"));
 		// 응답 헤더에 추가
