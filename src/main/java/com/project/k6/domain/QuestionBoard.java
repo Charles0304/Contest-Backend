@@ -27,6 +27,7 @@ public class QuestionBoard {
     private Long seq;
     private String title;
     private String content;
+    private boolean isAnswered;
 
     @OneToOne(mappedBy = "questionBoard")
     private AnswerBoard answerBoard;
