@@ -4,10 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.k6.domain.HsCode;
+import com.project.k6.dto.HsCodeDTO;
 import com.project.k6.service.HsCodeService;
 
 @RestController
@@ -34,6 +34,11 @@ public class HsCodeController {
 	@GetMapping("/major/medium/minor")
 	public List<HsCode> getMinorCategoriesByMajorAndMedium(int hscode1, int hscode2, int hscode3) {
 		return hscodeService.getMinorCategoriesByMajorAndMedium(hscode1, hscode2, hscode3);
+	}
+	
+	@GetMapping("/categories")
+	public List<HsCodeDTO> getCategories(){
+		return hscodeService.getCategoires();
 	}
 
 }
