@@ -12,20 +12,28 @@ import com.project.k6.persistence.QuestionBoardRepository;
 public class QuestionBoardService {
 	
 	@Autowired
-	private QuestionBoardRepository qbRapo;
+	private QuestionBoardRepository questionBoardRepository;
+	
+	public QuestionBoard findById(Long id) {
+        return questionBoardRepository.findById(id).orElseThrow(() -> new RuntimeException("QuestionBoard not found"));
+    }
+	
+	public QuestionBoard saveQuestion(QuestionBoard questionBoard) {
+        return questionBoardRepository.save(questionBoard);
+    }
 	
 	public List<QuestionBoard> getBoards(){
-		return qbRapo.findAll();
+		return questionBoardRepository.findAll();
 	}
 
 	public QuestionBoard putBoards(QuestionBoard questionBoard) {
-		qbRapo.save(questionBoard);
+		questionBoardRepository.save(questionBoard);
 		return questionBoard;
 	}
 
 	public QuestionBoard deleteBoards(Long seq) {
-		QuestionBoard ab = qbRapo.getById(seq);
-		qbRapo.deleteById(seq);
+		QuestionBoard ab = questionBoardRepository.getById(seq);
+		questionBoardRepository.deleteById(seq);
 		return ab;
 	}
 }

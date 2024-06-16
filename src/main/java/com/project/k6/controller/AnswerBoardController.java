@@ -8,38 +8,37 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.project.k6.domain.AnswerBoard;
-import com.project.k6.domain.Member;
-import com.project.k6.domain.QuestionBoard;
 import com.project.k6.service.AnswerBoardService;
 
 
 @Controller
+@RequestMapping("/api")
 public class AnswerBoardController {
 	
 	@Autowired
-	private AnswerBoardService boardService;
+	private AnswerBoardService answerBoardService;
 	
 	@GetMapping("/answerboard")
 	public List<AnswerBoard> getBoards(AnswerBoard answerboard){
-		return boardService.getBoards();
+		return answerBoardService.getBoards();
 	}
 	
-	@PostMapping("/answerboard")
-	public AnswerBoard postBoards(AnswerBoard answerboard) {
-		QuestionBoard qboard = null;
-		Member member = null;
-		return boardService.postBoards(answerboard, qboard, member);
-	}
+	@PostMapping("/answers")
+    public AnswerBoard createAnswer(@RequestBody AnswerBoard answerBoard) {
+        return answerBoardService.saveAnswer(answerBoard);
+    }
 	
 	@PutMapping("/answerboard")
 	public AnswerBoard putBoards(AnswerBoard answerboard) {
-		return boardService.putBoards(answerboard);
+		return answerBoardService.putBoards(answerboard);
 	}
 
 	@DeleteMapping("/board")
 	public AnswerBoard deleteBoards(Long seq) {
-		return boardService.deleteBoards(seq); 
+		return answerBoardService.deleteBoards(seq); 
 	}
 }

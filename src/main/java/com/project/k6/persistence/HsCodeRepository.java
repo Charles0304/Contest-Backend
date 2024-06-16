@@ -15,4 +15,6 @@ public interface HsCodeRepository extends JpaRepository<HsCode, String> {
 	 List<HsCode> findByHscode1AndHscode2AndHscode3(int hscode1, int hscode2, int hscode3);
 	 @Query("SELECT new com.project.k6.dto.HsCodeDTO(c.hscode1, c.hscode2, c.hscode3) FROM HsCode c")
 	 List<HsCodeDTO> findCategories();
+	 @Query(value = "SELECT * FROM hscode ORDER BY RAND() LIMIT 5", nativeQuery = true) //모델 나오기 전 테스트용 랜덤 5개
+	 List<HsCode> findRandomHsCodes();
 }

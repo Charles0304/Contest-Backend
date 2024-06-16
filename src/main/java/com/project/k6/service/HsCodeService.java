@@ -13,25 +13,29 @@ import com.project.k6.persistence.HsCodeRepository;
 public class HsCodeService {
 
 	@Autowired
-	private HsCodeRepository hscodeRepo;
+	private HsCodeRepository hsCodeRepository;
 
 	public List<HsCode> getHsCodes() {
-		return hscodeRepo.findAll();
+		return hsCodeRepository.findAll();
 	}
 
 	public List<HsCode> getMajorCategories(int hscode1) {
-		return hscodeRepo.findByHscode1(hscode1);
+		return hsCodeRepository.findByHscode1(hscode1);
 	}
 
 	public List<HsCode> getMediumCategoriesByMajor(int hscode1, int hscode2) {
-		return hscodeRepo.findByHscode1AndHscode2(hscode1, hscode2);
+		return hsCodeRepository.findByHscode1AndHscode2(hscode1, hscode2);
 	}
 
 	public List<HsCode> getMinorCategoriesByMajorAndMedium(int hscode1, int hscode2, int hscode3) {
-		return hscodeRepo.findByHscode1AndHscode2AndHscode3(hscode1, hscode2, hscode3);
+		return hsCodeRepository.findByHscode1AndHscode2AndHscode3(hscode1, hscode2, hscode3);
 	}
 	
 	public List<HsCodeDTO> getCategoires(){
-		return hscodeRepo.findCategories();
+		return hsCodeRepository.findCategories();
 	}
+	
+	public List<HsCode> getRandomHsCodes() {
+        return hsCodeRepository.findRandomHsCodes();
+    }
 }
