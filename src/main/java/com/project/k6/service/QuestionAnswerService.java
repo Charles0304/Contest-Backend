@@ -32,7 +32,6 @@ public class QuestionAnswerService {
                           .answerContent(question.getAnswerBoard().getContent())
                           .answerDate(question.getAnswerBoard().getCreatedDate());
             }
-
             return dtoBuilder.build();
         }).collect(Collectors.toList());
     }

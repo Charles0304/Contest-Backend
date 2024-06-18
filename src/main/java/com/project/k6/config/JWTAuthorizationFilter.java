@@ -45,8 +45,8 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
 								.asString();
 		
 		Optional<Member> opt = memberRepository.findByEmail(username);	// 토큰에서 얻은 username으로 DB를 검색해서 사용자를 검색
-		if(!opt.isPresent()) {										// 사용자가 존재하지 않는다면
-			filterChain.doFilter(request, response);				// 필터를 그냥 통과	
+		if(!opt.isPresent()) {											// 사용자가 존재하지 않는다면
+			filterChain.doFilter(request, response);					// 필터를 그냥 통과	
 			return;
 		}
 		

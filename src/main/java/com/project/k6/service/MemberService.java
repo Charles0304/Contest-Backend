@@ -12,7 +12,7 @@ import com.project.k6.persistence.MemberRepository;
 
 
 @Service
-public class UserService {
+public class MemberService {
 	@Autowired
 	private MemberRepository memberRepository;
 	
