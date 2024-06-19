@@ -3,6 +3,7 @@ package com.project.k6.domain;
 import java.sql.Date;
 import java.util.Set;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -30,6 +31,7 @@ public class Log {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Date time;
+    @Column(columnDefinition = "TEXT")
     private String inputValue;
     private String result;
 

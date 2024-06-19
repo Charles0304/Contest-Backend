@@ -31,16 +31,14 @@ public class SecurityConfig {
 	 
 	 @Bean
 	 SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//
-//		 http.securityMatcher("/api/members/signup");
-//         
-//		 http.anyRequest().authenticated();
-		 
+
+		 http.securityMatcher("/api/members/signup");
+         
 		 http.csrf(csrf->csrf.disable());
 		 
 		 http.authorizeHttpRequests(auth->auth
-				 .requestMatchers("/user/profile/**").hasAnyRole("USER", "ADMIN")
-				 .anyRequest().permitAll());
+				 .requestMatchers("/user/profile/**").hasAnyRole("MANAGER", "ADMIN") //user/profile/** 에는 "MANAGER", "ADMIN" 만 접근 가능
+				 .anyRequest().permitAll()); //나머지 모든 페이지에는 모든 접근자 접근 가능
 		 
 		 http.formLogin(frmLogin -> frmLogin.disable());
 		 http.httpBasic(basic->basic.disable());

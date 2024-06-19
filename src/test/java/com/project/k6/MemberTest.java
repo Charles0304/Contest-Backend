@@ -8,6 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.project.k6.domain.Member;
 import com.project.k6.domain.Role;
+import com.project.k6.persistence.LogRepository;
 import com.project.k6.persistence.MemberRepository;
 
 @SpringBootTest
@@ -15,6 +16,8 @@ public class MemberTest {
 	PasswordEncoder encoder = new BCryptPasswordEncoder();
 	@Autowired
 	MemberRepository memberRepo;
+	@Autowired
+	LogRepository logRepo;
 	@Test
 	public void addMember() {
 		Member test = Member.builder()

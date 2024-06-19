@@ -47,5 +47,4 @@ public class HsCodeController {
 	public List<HsCode> getRandomHsCodes() {
 		return hsCodeService.getRandomHsCodes();
 	}
-
 }
