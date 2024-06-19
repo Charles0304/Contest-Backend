@@ -19,12 +19,23 @@ public class MemberService {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
-	public Member registerUser(Member member) {
-		member.setPassword(passwordEncoder.encode(member.getPassword()));
-		return memberRepository.save(member);
-	}
+//	public Member registerUser(Member member) {
+//		member.setPassword(passwordEncoder.encode(member.getPassword()));
+//		return memberRepository.save(member);
+//	}
 	
 	public Member findByUsername(String username) {
 		return memberRepository.findByUsername(username).orElse(null);
 	}
+
+    public Member registerUser(Member member) {
+        if (memberRepository.findByUsername(member.getUsername()) != null) {
+            throw new RuntimeException("Username is already taken");
+        }
+        if (memberRepository.findByEmail(member.getEmail()) != null) {
+            throw new RuntimeException("Email is already taken");
+        }
+        member.setPassword(passwordEncoder.encode(member.getPassword()));
+        return memberRepository.save(member);
+    }
 }

@@ -46,6 +46,4 @@ public class Log {
         inverseJoinColumns = @JoinColumn(name = "hscode_hscode")
     )
     private Set<HsCode> hsCodes;
-
-    // getters and setters
 }
