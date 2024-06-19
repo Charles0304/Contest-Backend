@@ -21,7 +21,7 @@ public class FlasktestService {
     private final ObjectMapper objectMapper;
 	
     @Transactional
-    public String sendToFlask(String dto) throws JsonProcessingException {
+    public String[] sendToFlask(String dto) throws JsonProcessingException {
         
     	RestTemplate restTemplate = new RestTemplate();
 		
@@ -33,11 +33,11 @@ public class FlasktestService {
         
         String param = objectMapper.writeValueAsString(dto);
 
-        HttpEntity<String> entity = new HttpEntity<String>(param , headers);
+        HttpEntity<String> entity = new HttpEntity<>(param , headers);
 		
         //실제 Flask 서버랑 연결하기 위한 URL
         String url = "http://10.125.121.214:5000/process";
-        ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
+        ResponseEntity<String[]> response = restTemplate.postForEntity(url, entity, String[].class);
         //Flask 서버로 데이터를 전송하고 받은 응답 값을 return
         return response.getBody();
     }

@@ -17,7 +17,7 @@ public class ApiController {
 	private FlasktestService flaskService;
 
 	@PostMapping("/process")
-	public String sendToFlask(@RequestBody String inputText) throws JsonProcessingException {
+	public String[] sendToFlask(@RequestBody String inputText) throws JsonProcessingException {
 		return flaskService.sendToFlask(inputText);
 	}
 }

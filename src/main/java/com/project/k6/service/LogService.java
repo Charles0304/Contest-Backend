@@ -41,7 +41,6 @@ public class LogService {
     		HsCode hs = hscodeRepo.getById(s);
     		newLog.getHsCodes().add(hs);
     	}
-    	
     	logRepo.save(newLog);
     	return newLog;
     }
