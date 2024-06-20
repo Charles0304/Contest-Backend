@@ -31,14 +31,14 @@ public class AnswerBoard {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long seq;
-    private String title;
+    private String title; // nullable(fales)추천
     private String content;
 
-    @CreatedDate
-    @Column(updatable = false)
+    @CreatedDate // 생성된 날짜
+    @Column(updatable = false) // 만들어진 시간은 바꿀 수 없으니 업데이트를 못하게 만들어줌.
     private LocalDateTime createdDate;
     
-    @OneToOne
+    @OneToOne // 질문글이 하나면 대답글이 하나고, 대답글이 하나면 질문글이 하나이니까.
     @JoinColumn(name = "questionboard_seq")
     private QuestionBoard questionBoard;
 
@@ -46,7 +46,7 @@ public class AnswerBoard {
     @JoinColumn(name = "member_id")
     private Member member;
 
-    @PrePersist
+    @PrePersist // 데이터베이스에 저장되기 전 특수 동작을 시행키켜줌.
     protected void onCreate() {
         createdDate = LocalDateTime.now();
     }

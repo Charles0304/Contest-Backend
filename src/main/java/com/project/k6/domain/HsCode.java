@@ -26,7 +26,7 @@ public class HsCode {
     private int hscode1;
     private int hscode2;
     private int hscode3;
-    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT") //해당 컬럼의 데이터타입 설정.
     private String hs1englishitem;
     @Column(columnDefinition = "TEXT")
     private String hs1koreanitem;

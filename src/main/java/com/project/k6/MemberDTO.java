@@ -13,6 +13,7 @@ import lombok.Setter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+//프론트로 보낼 때 비밀번호까지 보내는게 좀 그렇다 싶어서 이 테이블을 따로 만듦.
 public class MemberDTO {
 	private String username;
 	private String email;

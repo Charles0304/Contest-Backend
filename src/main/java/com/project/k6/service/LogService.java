@@ -15,7 +15,7 @@ import com.project.k6.persistence.LogRepository;
 public class LogService {
 
     @Autowired
-    private FlasktestService flaskService;
+    private FlaskService flaskService;
     
     @Autowired
     private HsCodeRepository hscodeRepo;
@@ -35,7 +35,7 @@ public class LogService {
     	newLog.setMember(member);
     	//결과를 돌면서 다 추가를 해준다
     	for(String s : result ) {
-    		HsCode hs = hscodeRepo.getById(s);
+    		HsCode hs = hscodeRepo.findById(s).get();
     		newLog.getHsCodes().add(hs);
     	}
     	logRepo.save(newLog);
