@@ -13,10 +13,7 @@ import com.project.k6.persistence.LogRepository;
 
 @Service
 public class LogService {
-	
-    @Autowired
-    private MemberService memberService;
-    
+
     @Autowired
     private FlasktestService flaskService;
     

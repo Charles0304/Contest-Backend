@@ -21,7 +21,7 @@ public class MemberTest {
 	@Test
 	public void addMember() {
 		Member test = Member.builder()
-		.email("cotncjf2@naver.com")
+		.email("cotncjf@naver.com")
 		.password(encoder.encode("1234"))
 		.username("cotncjf")
 		.role(Role.ROLE_ADMIN)

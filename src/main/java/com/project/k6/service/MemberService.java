@@ -19,10 +19,10 @@ public class MemberService {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
-//	public Member registerUser(Member member) {
-//		member.setPassword(passwordEncoder.encode(member.getPassword()));
-//		return memberRepository.save(member);
-//	}
+	public Member registerUser1(Member member) {
+		member.setPassword(passwordEncoder.encode(member.getPassword()));
+		return memberRepository.save(member);
+	}
 	
 	public Member findByUsername(String username) {
 		return memberRepository.findByUsername(username).orElse(null);

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import jakarta.transaction.Transactional;
@@ -20,7 +21,7 @@ public class FlasktestService {
 	//데이터를 JSON 객체로 변환하기 위해서 사용
     private final ObjectMapper objectMapper;
 	
-    @Transactional
+    @Transactional // do all die
     public String[] sendToFlask(String dto) throws JsonProcessingException {
         
     	RestTemplate restTemplate = new RestTemplate();
@@ -37,8 +38,15 @@ public class FlasktestService {
 		
         //실제 Flask 서버랑 연결하기 위한 URL
         String url = "http://10.125.121.214:5000/process";
-        ResponseEntity<String[]> response = restTemplate.postForEntity(url, entity, String[].class);
-        //Flask 서버로 데이터를 전송하고 받은 응답 값을 return
-        return response.getBody();
+        ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
+        
+        // JSON 응답을 파싱하여 숫자 배열로 변환
+        JsonNode jsonNode = objectMapper.readTree(response.getBody());
+        JsonNode resultNode = jsonNode.get("result");
+
+        // JsonNode를 String[]로 변환
+        String[] resultArray = objectMapper.convertValue(resultNode, String[].class);
+        System.out.println(resultArray);
+        return resultArray;
     }
 }
