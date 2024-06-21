@@ -35,7 +35,7 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
 			return;
 		}
 		
-		String jwtToken = srcToken.replace("Bearer ", "");			// 토근에서 "Bearer "를 제거
+		String jwtToken = srcToken.replace("Bearer ", "");			// 토큰에서 "Bearer "를 제거
 		
 		// 토큰에서 username 추출
 		String username = JWT.require(Algorithm.HMAC256("edu.pnu.jwt"))	

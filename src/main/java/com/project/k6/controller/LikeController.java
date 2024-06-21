@@ -1,7 +1,5 @@
 package com.project.k6.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,9 +16,9 @@ public class LikeController {
 	
 	@Autowired
 	private LikeService likeService;
-	
+
 	@PostMapping("/like")
-	public List<Like> postLikes(Member member, HsCode hs){
+	public Like postLikes(Member member, HsCode hs){
 		return likeService.postLike(member,hs);
 	}
 	
