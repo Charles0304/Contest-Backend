@@ -5,8 +5,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.project.k6.domain.Member;
-import com.project.k6.persistence.HsCodeRepository;
 import com.project.k6.persistence.MemberRepository;
+
+import jakarta.persistence.EntityNotFoundException;
 
 
 
@@ -37,5 +38,9 @@ public class MemberService {
         }
         member.setPassword(passwordEncoder.encode(member.getPassword()));
         return memberRepository.save(member);
+    }
+
+    public Member getMemberById(Long id) {
+        return memberRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Member not found"));
     }
 }

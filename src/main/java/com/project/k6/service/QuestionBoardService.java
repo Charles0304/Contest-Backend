@@ -32,7 +32,7 @@ public class QuestionBoardService {
 	}
 
 	public QuestionBoard deleteBoards(Long seq) {
-		QuestionBoard ab = questionBoardRepository.getById(seq);
+		QuestionBoard ab = questionBoardRepository.findById(seq).get();
 		questionBoardRepository.deleteById(seq);
 		return ab;
 	}

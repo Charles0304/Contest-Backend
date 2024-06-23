@@ -13,6 +13,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+//답변이 완료된 상태의 게시판 모습
 public class QuestionAnswerDTO {
     private Long questionSeq;
     private String questionTitle;

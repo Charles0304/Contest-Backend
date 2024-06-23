@@ -26,7 +26,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
-
+	
 	// 인증 객체
 	private final AuthenticationManager authenticationManager;
 	private final MemberRepository memberRepository;

@@ -36,7 +36,7 @@ public class AnswerBoardController {
 	public AnswerBoard putBoards(AnswerBoard answerboard) {
 		return answerBoardService.putBoards(answerboard);
 	}
-
+	
 	@DeleteMapping("/board")
 	public AnswerBoard deleteBoards(Long seq) {
 		return answerBoardService.deleteBoards(seq); 

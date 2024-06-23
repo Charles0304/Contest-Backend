@@ -37,6 +37,4 @@ public class Member {
 	//member 하나가 여러개의 log를 가질 수 있다.
 	@OneToMany(mappedBy = "member")//부모의 테이블 이름을 적어서 연결(대,소문자는 구분안함), 그리고 자식테이블에는 joincolume을 써서 부모의 테이블의 값과 연결시킴.
 	private Set<Log> logs; // 회원 정보를 검색했을 때 로그도 나오게 함
-
-	// getters and setters
 }

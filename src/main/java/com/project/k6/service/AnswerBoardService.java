@@ -45,7 +45,7 @@ public class AnswerBoardService {
 	}
 
 	public AnswerBoard deleteBoards(Long seq) {
-		AnswerBoard ab = answerBoardRepository.getById(seq);
+		AnswerBoard ab = answerBoardRepository.findById(seq).get();
 		answerBoardRepository.deleteById(seq);
 		return ab;
 	}

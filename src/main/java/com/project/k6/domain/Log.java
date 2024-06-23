@@ -1,7 +1,11 @@
 package com.project.k6.domain;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.Set;
+
+import org.springframework.data.annotation.CreatedDate;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -30,12 +34,16 @@ public class Log {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Date time;
+   
     @Column(columnDefinition = "TEXT")
     private String inputValue;
-    private String result;
 
+    @CreatedDate
+    @Column(updatable = false)
+    private LocalDateTime createdDate;
+    
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "member_id") // mamber 의 필드인 id랑 연결됨.
     private Member member;
 

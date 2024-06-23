@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.project.k6.domain.Member;
 import com.project.k6.service.MemberService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/api/members")
@@ -35,5 +38,4 @@ public class MemberController {
 			return ResponseEntity.badRequest().body(e.getMessage());
 		}
 	}
-	
 }
