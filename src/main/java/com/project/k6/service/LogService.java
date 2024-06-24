@@ -35,7 +35,7 @@ public class LogService {
 	@Autowired
 	private LogRepository logRepo;
 
-	public Log insertLog(String input, String id) throws JsonProcessingException {
+	public Set<HsCode> insertLog(String input, String id) throws JsonProcessingException {
 		//input STring으로 플라스크에서 결과값을 받아온다 (배열)
 		String[] result = flaskService.sendToFlask(input);
 		//새로운 로그 생성
@@ -62,7 +62,7 @@ public class LogService {
 		}
 		newLog.setHsCodes(hsCodeSet);
 		logRepo.save(newLog);
-		return newLog;
+		return hsCodeSet;
 	}
 
 	public List<Log> getLogLists() {
