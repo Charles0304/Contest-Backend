@@ -32,8 +32,7 @@ public class SecurityConfig {
 	 @Bean
 	 SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-		 http.securityMatcher("/api/members/signup");
-         
+
 		 http.csrf(csrf->csrf.disable());
 		 
 		 http.authorizeHttpRequests(auth->auth
