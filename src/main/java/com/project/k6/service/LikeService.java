@@ -12,6 +12,7 @@ import com.project.k6.domain.LikeId;
 import com.project.k6.domain.Member;
 import com.project.k6.persistence.HsCodeRepository;
 import com.project.k6.persistence.LikeRepostitory;
+import com.project.k6.persistence.MemberRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 
@@ -19,31 +20,37 @@ import jakarta.persistence.EntityNotFoundException;
 public class LikeService {
 	
 	@Autowired
-	private LikeRepostitory likeRapo;
+	private LikeRepostitory likeRepository;
 	@Autowired
 	private HsCodeRepository hscodeRepo;
+	@Autowired
+	private MemberRepository memberRepo;
 
 	
-	public Like postLike(Member member, String hs){
-		System.out.println(hs+" "+member);
-		Optional<HsCode> hscodeOptional = hscodeRepo.findById(hs);
+	public Like postLike(LikeId id){
+		Optional<HsCode> hscodeOptional = hscodeRepo.findById(id.getHsCode());
 		HsCode hscode = hscodeOptional.orElseThrow(() -> new EntityNotFoundException("HsCode not found"));
+		Optional<Member> memberOptional = memberRepo.findById(id.getMember());
+		Member member = memberOptional.orElseThrow(() -> new EntityNotFoundException("HsCode not found"));
 		Like like = Like.builder()
 		.member(member)
 		.hsCode(hscode)
 		.build();
-		likeRapo.save(like);
+		likeRepository.save(like);
 		return like;
 	}
 
 	public Like deleteLike(LikeId id) {
-		System.out.println(id);
-		Like lk = likeRapo.findById(id).get();
-		likeRapo.deleteById(id);		
+		Like lk = likeRepository.findById(id).get();
+		likeRepository.deleteById(id);		
 		return lk;
 	}
 	
 	 public List<Like> getLikesByMember(Member member) {
-	        return likeRapo.findByMember(member);
+	        return likeRepository.findByMember(member);
+	}
+
+	public boolean isLiked(Long memberId, String hscode) {
+		return likeRepository.existsByMemberIdAndHsCodeHscode(memberId, hscode);
 	}
 }

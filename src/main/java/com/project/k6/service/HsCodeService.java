@@ -1,6 +1,7 @@
 package com.project.k6.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,6 +37,10 @@ public class HsCodeService {
 	}
 	
 	public List<HsCode> getRandomHsCodes() {
-        return hsCodeRepository.findRandomHsCodes();
+		Optional<HsCode> hscodeOptional = hsCodeRepository.findById("0101-29-9000");
+		HsCode hscode = hscodeOptional.orElseThrow();
+		List<HsCode> result = hsCodeRepository.findRandomHsCodes();
+		result.add(hscode);
+        return result;
     }
 }

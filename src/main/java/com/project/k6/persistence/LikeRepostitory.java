@@ -10,5 +10,6 @@ import com.project.k6.domain.Member;
 
 public interface LikeRepostitory extends JpaRepository<Like,LikeId> {
     List<Like> findByMember(Member member);
-
+    boolean existsByMemberIdAndHsCodeHscode(Long memberId, String hscode);
+   
 }
