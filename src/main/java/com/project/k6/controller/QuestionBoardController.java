@@ -16,7 +16,7 @@ import com.project.k6.service.QuestionBoardService;
 
 
 @Controller
-@RequestMapping("api")
+@RequestMapping("/api")
 public class QuestionBoardController {
 	
 	@Autowired
@@ -27,17 +27,17 @@ public class QuestionBoardController {
         return questionBoardService.saveQuestion(questionBoard);
     }
 	
-	@GetMapping("/questionboard")
+	@GetMapping("/questions")
 	public List<QuestionBoard> getBoards(QuestionBoard questionBoard){
 		return questionBoardService.getBoards();
 	}
 	
-	@PutMapping("/questionboard")
+	@PutMapping("/questions")
 	public QuestionBoard putBoards(QuestionBoard questionBoard) {
 		return questionBoardService.putBoards(questionBoard);
 	}
 	
-	@DeleteMapping("/questionboard")
+	@DeleteMapping("/questions")
 	public QuestionBoard deleteBoards(Long seq) {
 		return questionBoardService.deleteBoards(seq); 
 	}

@@ -12,7 +12,7 @@ import com.project.k6.dto.HsCodeDTO;
 import com.project.k6.service.HsCodeService;
 
 @RestController
-@RequestMapping("/hscode")
+@RequestMapping("/api/hscode")
 public class HsCodeController {
 
 	@Autowired

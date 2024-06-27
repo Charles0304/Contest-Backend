@@ -27,19 +27,19 @@ public class LogConrtoller {
 	@Autowired
 	private MemberService memberService;
 
-	@PostMapping("/process")
+	@PostMapping("/logs")
 	public Set<HsCode> sendToFlask(@RequestBody String inputText, String id) throws JsonProcessingException {
 		return logService.insertLog(inputText, id);
 	}
 
 	//모든 로그 다 가져오기
-	@GetMapping("/loglist")
+	@GetMapping("/logs")
 	public List<Log> getLogList() {
 		return logService.getLogLists();
 	}
 
 	//맴버에 대한 log 불러오기
-	@GetMapping("/member/{memberId}")
+	@GetMapping("/logs/{memberId}")
 	public List<Log> getLogsByMember(@PathVariable Long memberId) {
 		Member member = memberService.getMemberById(memberId); // MemberService를 사용하여 Member 조회
 		return logService.getLogsByMember(member);

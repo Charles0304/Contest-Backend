@@ -20,7 +20,7 @@ import com.project.k6.service.LikeService;
 import com.project.k6.service.MemberService;
 
 @RestController
-@RequestMapping("/like")
+@RequestMapping("/api/likes")
 public class LikeController {
 
 	@Autowired

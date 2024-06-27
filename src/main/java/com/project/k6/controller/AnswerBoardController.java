@@ -22,7 +22,7 @@ public class AnswerBoardController {
 	@Autowired
 	private AnswerBoardService answerBoardService;
 	
-	@GetMapping("/answerboard")
+	@GetMapping("/answers")
 	public List<AnswerBoard> getBoards(AnswerBoard answerboard){
 		return answerBoardService.getBoards();
 	}
@@ -32,12 +32,12 @@ public class AnswerBoardController {
         return answerBoardService.saveAnswer(answerBoard);
     }
 	
-	@PutMapping("/answerboard")
+	@PutMapping("/answers")
 	public AnswerBoard putBoards(AnswerBoard answerboard) {
 		return answerBoardService.putBoards(answerboard);
 	}
 	
-	@DeleteMapping("/board")
+	@DeleteMapping("/answers")
 	public AnswerBoard deleteBoards(Long seq) {
 		return answerBoardService.deleteBoards(seq); 
 	}
