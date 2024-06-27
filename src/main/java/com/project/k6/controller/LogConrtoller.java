@@ -27,6 +27,7 @@ public class LogConrtoller {
 	@Autowired
 	private MemberService memberService;
 
+	//hscode search
 	@PostMapping("/process")
 	public Set<HsCode> sendToFlask(@RequestBody String inputText, String id) throws JsonProcessingException {
 		return logService.insertLog(inputText, id);

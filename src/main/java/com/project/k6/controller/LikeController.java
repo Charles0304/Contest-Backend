@@ -27,7 +27,7 @@ public class LikeController {
 	private LikeService likeService;
 	@Autowired
 	private MemberService memberService;
-
+	//
 	@PostMapping("")
 	public Like postLikes(@RequestBody LikeId id){
 		return likeService.postLike(id);
@@ -45,7 +45,7 @@ public class LikeController {
 		LikeId id = new LikeId(memberId,hscode);
 		return likeService.deleteLike(id);
 	}
-
+	//좋아요 조회
     @GetMapping("/{memberId}")
     public List<Like> getLikesByMember(@PathVariable Long memberId) {
         Member member = memberService.getMemberById(memberId);
