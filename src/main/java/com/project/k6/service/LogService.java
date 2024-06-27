@@ -41,7 +41,7 @@ public class LogService {
 		//새로운 로그 생성
 		Log newLog = new Log();
 		//input data 입력
-		newLog.setInputValue(input.substring(input.indexOf(":")+3, input.lastIndexOf('"')));
+		newLog.setInputValue(input.substring(input.indexOf(":")+2, input.lastIndexOf('"')));
 		//Member id 만 가져오는 방법
 		Optional<Member> memberOptional = memberRepo.findById(Long.parseLong(id));
 		Member member = memberOptional.orElseThrow(()->new EntityNotFoundException("member not found"));

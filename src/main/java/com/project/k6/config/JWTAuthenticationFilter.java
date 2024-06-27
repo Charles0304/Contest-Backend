@@ -14,8 +14,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.project.k6.MemberDTO;
 import com.project.k6.domain.Member;
+import com.project.k6.dto.MemberDTO;
 import com.project.k6.persistence.MemberRepository;
 
 import jakarta.servlet.FilterChain;

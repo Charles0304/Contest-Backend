@@ -28,14 +28,4 @@ public class MemberController {
 		memberService.registerUser(member);
 		return ResponseEntity.ok("User registered successfully");
 	}
-
-	@PostMapping("/register")
-	public ResponseEntity<String> registerUser(@RequestBody Member member) {
-		try {
-			memberService.registerUser(member);
-			return ResponseEntity.ok("User registered successfully");
-		} catch (RuntimeException e) {
-			return ResponseEntity.badRequest().body(e.getMessage());
-		}
-	}
 }

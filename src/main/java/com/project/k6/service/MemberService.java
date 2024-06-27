@@ -36,6 +36,7 @@ public class MemberService {
         if (memberRepository.findByEmail(member.getEmail()) != null) {
             throw new RuntimeException("Email is already taken");
         }
+        
         member.setPassword(passwordEncoder.encode(member.getPassword()));
         return memberRepository.save(member);
     }

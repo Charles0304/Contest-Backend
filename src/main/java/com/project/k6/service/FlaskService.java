@@ -19,14 +19,14 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class FlaskService {
 	
+	@Autowired
+	private RestTemplate restTemplate;
 	//데이터를 JSON 객체로 변환하기 위해서 사용
     private final ObjectMapper objectMapper;
 	//오브잭트로 받아오는 hscode를 배열로 받아오기 위한 메서드
     @Transactional // do all die
     public String[] sendToFlask(String dto) throws JsonProcessingException {
         
-    	RestTemplate restTemplate = new RestTemplate();
-		
         //헤더를 JSON으로 설정함
         HttpHeaders headers = new HttpHeaders();
         

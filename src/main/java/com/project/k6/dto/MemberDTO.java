@@ -1,4 +1,4 @@
-package com.project.k6;
+package com.project.k6.dto;
 
 import com.project.k6.domain.Role;
 
