@@ -10,7 +10,7 @@
 |------|---|---|
 |신건영|데이터 분석|[https://github.com/LinkDiscovery](https://github.com/LinkDiscovery/HScodeMappingProject)|
 |김보성|백엔드|https://github.com/kingboseong|
-|채수철|프론트엔드|[https://github.com/Charles0304](https://github.com/Charles0304/Contest-Frontend)|
+|채수철|백엔드,프론트엔드|[https://github.com/Charles0304](https://github.com/Charles0304/Contest-Frontend)|
 ---
 #### 데이터 분석 진행일기(Notion)
 > https://www.notion.so/cd44b82f39d64adca06035bcb77338dd?pm=c
